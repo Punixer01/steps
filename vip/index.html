@@ -156,6 +156,57 @@
   .foot p{margin:8px 0 0;font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:12px}
   .foot .cur{color:var(--yellow)}
 
+  /* ===================== HUB (links page after ENTER) ===================== */
+  .screen{display:none}
+  .screen.active{display:block;animation:appIn .5s ease}
+  .hub{max-width:440px;margin:0 auto;min-height:100vh;padding:34px 4px 40px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center}
+  .hub .logo{width:106px;height:106px;padding:16px 18px}
+  .hub-name{font-family:"Bungee",sans-serif;color:var(--yellow);letter-spacing:.3em;font-size:26px;margin-top:2px}
+  .hub-tag{color:var(--muted);text-transform:uppercase;letter-spacing:.22em;font-weight:600;font-size:12px}
+  .hub-btns{width:100%;display:flex;flex-direction:column;gap:12px;margin-top:10px}
+  .hbtn{display:flex;align-items:center;gap:14px;width:100%;text-decoration:none;cursor:pointer;
+    background:var(--navy-soft);border:2px solid rgba(255,255,255,.09);border-radius:16px;padding:14px 16px;
+    color:var(--white);text-align:left;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+  .hbtn:hover,.hbtn:focus-visible{transform:translateY(-2px);border-color:var(--yellow);box-shadow:0 12px 24px rgba(0,0,0,.3);outline:none}
+  .hbtn.primary{background:var(--accent);border-color:transparent}
+  .hbtn .ic{flex:0 0 auto;width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.14)}
+  .hbtn.primary .ic{background:rgba(255,255,255,.2)}
+  .hbtn .ic svg{width:26px;height:26px}
+  .hbtn .tx{flex:1;min-width:0}
+  .hbtn .t1{display:block;font-family:"Bungee",sans-serif;font-size:15px;line-height:1.12}
+  .hbtn .t2{display:block;color:rgba(255,255,255,.72);font-size:13px;font-weight:600;margin-top:3px}
+  .hbtn.primary .t2{color:rgba(255,255,255,.9)}
+  .hbtn .chev{flex:0 0 auto;opacity:.55}.hbtn .chev svg{width:20px;height:20px}
+  .social{display:flex;gap:14px;justify-content:center;margin-top:4px}
+  .social a{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:var(--white);
+    background:var(--navy-soft);border:2px solid rgba(255,255,255,.09);transition:transform .16s ease,border-color .16s ease}
+  .social a:hover{transform:translateY(-2px);border-color:var(--yellow)}
+  .social a svg{width:28px;height:28px}
+  .langs{display:flex;gap:6px;justify-content:center;margin-top:12px}
+  .langs button{background:transparent;border:2px solid rgba(255,255,255,.16);color:var(--muted);border-radius:30px;
+    padding:7px 16px;font-weight:700;letter-spacing:.05em;font-size:13px;cursor:pointer;transition:.15s}
+  .langs button.on{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
+  .langs button:hover:not(.on){color:var(--white)}
+  .hub-foot{color:var(--muted);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-top:12px;direction:ltr}
+
+  /* menu top bar (back + language) */
+  .mbar{position:sticky;top:0;z-index:25;display:flex;align-items:center;justify-content:space-between;
+    padding:12px 2px;background:linear-gradient(var(--navy) 80%,rgba(29,41,84,0))}
+  .mback{display:inline-flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;color:var(--white);
+    font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:13px}
+  .mback svg{width:20px;height:20px}
+  .mlangs{display:flex;gap:5px}
+  .mlangs button{background:transparent;border:1.5px solid rgba(255,255,255,.16);color:var(--muted);border-radius:20px;
+    padding:4px 11px;font-weight:700;font-size:12px;cursor:pointer;transition:.15s}
+  .mlangs button.on{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
+
+  /* RTL (Arabic) */
+  [dir="rtl"] .hbtn{text-align:right}
+  [dir="rtl"] .app{direction:rtl}
+  [dir="rtl"] .hbtn .chev{transform:scaleX(-1)}
+  [dir="rtl"] .mback svg{transform:scaleX(-1)}
+
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
     *{animation-duration:.001s!important;animation-delay:0s!important;transition-duration:.001s!important}
@@ -180,40 +231,118 @@
 </div>
 
 <main class="app" id="app">
-  <header class="hero">
-    <div class="logo md"><svg class="bird" viewBox="0 0 688 900" xmlns="http://www.w3.org/2000/svg" aria-label="STEPS logo" role="img"><path fill="#fff" fill-rule="evenodd" d="M340.0,150.0 255.0,143.0 101.0,159.0 63.0,188.0 53.0,212.0 74.0,385.0 174.0,248.0 180.0,219.0 171.0,188.0 182.0,179.0 327.0,176.0 370.0,195.0 397.0,225.0 397.0,268.0 379.0,304.0 286.0,397.0 190.0,467.0 88.0,517.0 98.0,543.0 161.0,597.0 208.0,617.0 274.0,625.0 219.0,799.0 172.0,793.0 137.0,803.0 124.0,822.0 125.0,850.0 211.0,846.0 235.0,832.0 311.0,609.0 429.0,761.0 391.0,790.0 383.0,826.0 493.0,813.0 344.0,605.0 412.0,551.0 447.0,495.0 467.0,434.0 467.0,367.0 303.0,422.0 395.0,331.0 431.0,252.0 413.0,197.0 385.0,169.0Z"/></svg></div>
-    <div class="brand">STEPS</div>
-    <span class="menu-pill">MENU</span>
-    <h1>DRINKS</h1>
-    <div class="hours">Open Hours &nbsp; <b>10PM</b><span class="sep"></span><b>05AM</b></div>
-  </header>
 
-  <nav class="catnav" id="catnav" aria-label="Menu categories"></nav>
-  <div id="sections"></div>
+  <!-- ===== HUB (shown after ENTER) ===== -->
+  <section class="screen" id="hub">
+    <div class="hub">
+      <div class="logo"><svg class="bird" viewBox="0 0 688 900" xmlns="http://www.w3.org/2000/svg" aria-label="STEPS logo" role="img"><path fill="#fff" fill-rule="evenodd" d="M340.0,150.0 255.0,143.0 101.0,159.0 63.0,188.0 53.0,212.0 74.0,385.0 174.0,248.0 180.0,219.0 171.0,188.0 182.0,179.0 327.0,176.0 370.0,195.0 397.0,225.0 397.0,268.0 379.0,304.0 286.0,397.0 190.0,467.0 88.0,517.0 98.0,543.0 161.0,597.0 208.0,617.0 274.0,625.0 219.0,799.0 172.0,793.0 137.0,803.0 124.0,822.0 125.0,850.0 211.0,846.0 235.0,832.0 311.0,609.0 429.0,761.0 391.0,790.0 383.0,826.0 493.0,813.0 344.0,605.0 412.0,551.0 447.0,495.0 467.0,434.0 467.0,367.0 303.0,422.0 395.0,331.0 431.0,252.0 413.0,197.0 385.0,169.0Z"/></svg></div>
+      <div class="hub-name">STEPS</div>
+      <div class="hub-tag" data-i18n="tagline">STEPS CLUB · SOUSSE</div>
 
-  <footer class="foot">
-    <div class="logo"><svg class="bird" viewBox="0 0 688 900" xmlns="http://www.w3.org/2000/svg" aria-label="STEPS logo" role="img"><path fill="#fff" fill-rule="evenodd" d="M340.0,150.0 255.0,143.0 101.0,159.0 63.0,188.0 53.0,212.0 74.0,385.0 174.0,248.0 180.0,219.0 171.0,188.0 182.0,179.0 327.0,176.0 370.0,195.0 397.0,225.0 397.0,268.0 379.0,304.0 286.0,397.0 190.0,467.0 88.0,517.0 98.0,543.0 161.0,597.0 208.0,617.0 274.0,625.0 219.0,799.0 172.0,793.0 137.0,803.0 124.0,822.0 125.0,850.0 211.0,846.0 235.0,832.0 311.0,609.0 429.0,761.0 391.0,790.0 383.0,826.0 493.0,813.0 344.0,605.0 412.0,551.0 447.0,495.0 467.0,434.0 467.0,367.0 303.0,422.0 395.0,331.0 431.0,252.0 413.0,197.0 385.0,169.0Z"/></svg></div>
-    <p>Open 10PM — 05AM &nbsp;•&nbsp; <span class="cur">All prices in TND</span></p>
-  </footer>
+      <div class="hub-btns">
+        <a class="hbtn primary" id="toMenu" role="button" tabindex="0">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span>
+          <span class="tx"><span class="t1" data-i18n="menu">Notre Menu</span><span class="t2" data-i18n="menuSub">Découvrez nos boissons</span></span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="hbtn" href="https://www.google.com/search?q=steps+club+sousse" target="_blank" rel="noopener noreferrer">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--yellow)"><path d="M12 3.3l2.5 5.16 5.7.83-4.12 4.02.97 5.66L12 16.98 6.98 18.99l.97-5.66L3.83 9.29l5.7-.83z"/></svg></span>
+          <span class="tx"><span class="t1" data-i18n="review">Laissez un avis</span><span class="t2" data-i18n="reviewSub">Super satisfait ?</span></span>
+          <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+
+      <div class="social">
+        <a href="https://www.instagram.com/popular/steps-sousse/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.facebook.com/p/Steps-Club-Sousse-61559130163305/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.6 8.4h-2.1V7.05c0-.62.42-.77.72-.77h1.35V3.31l-1.86-.01c-2.06 0-3.16 1.26-3.16 3.19V8.4H8.35V11h2.0v9.69h3.05V11h2.05z"/></svg>
+        </a>
+      </div>
+
+      <div class="langs">
+        <button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">عربي</button>
+      </div>
+      <div class="hub-foot">© 2026 STEPS CLUB · SOUSSE</div>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section class="screen" id="menuview">
+    <div class="mbar">
+      <button class="mback" id="backHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg><span data-i18n="back">Retour</span></button>
+      <div class="mlangs">
+        <button data-lang="fr">FR</button><button data-lang="en">EN</button><button data-lang="ar">عربي</button>
+      </div>
+    </div>
+
+    <header class="hero">
+      <div class="logo md"><svg class="bird" viewBox="0 0 688 900" xmlns="http://www.w3.org/2000/svg" aria-label="STEPS logo" role="img"><path fill="#fff" fill-rule="evenodd" d="M340.0,150.0 255.0,143.0 101.0,159.0 63.0,188.0 53.0,212.0 74.0,385.0 174.0,248.0 180.0,219.0 171.0,188.0 182.0,179.0 327.0,176.0 370.0,195.0 397.0,225.0 397.0,268.0 379.0,304.0 286.0,397.0 190.0,467.0 88.0,517.0 98.0,543.0 161.0,597.0 208.0,617.0 274.0,625.0 219.0,799.0 172.0,793.0 137.0,803.0 124.0,822.0 125.0,850.0 211.0,846.0 235.0,832.0 311.0,609.0 429.0,761.0 391.0,790.0 383.0,826.0 493.0,813.0 344.0,605.0 412.0,551.0 447.0,495.0 467.0,434.0 467.0,367.0 303.0,422.0 395.0,331.0 431.0,252.0 413.0,197.0 385.0,169.0Z"/></svg></div>
+      <div class="brand">STEPS</div>
+      <span class="menu-pill" data-i18n="pill">MENU</span>
+      <h1>DRINKS</h1>
+      <div class="hours"><span data-i18n="hours">Open Hours</span> &nbsp; <b>10PM</b><span class="sep"></span><b>05AM</b></div>
+    </header>
+
+    <nav class="catnav" id="catnav" aria-label="Menu categories"></nav>
+    <div id="sections"></div>
+
+    <footer class="foot">
+      <div class="logo"><svg class="bird" viewBox="0 0 688 900" xmlns="http://www.w3.org/2000/svg" aria-label="STEPS logo" role="img"><path fill="#fff" fill-rule="evenodd" d="M340.0,150.0 255.0,143.0 101.0,159.0 63.0,188.0 53.0,212.0 74.0,385.0 174.0,248.0 180.0,219.0 171.0,188.0 182.0,179.0 327.0,176.0 370.0,195.0 397.0,225.0 397.0,268.0 379.0,304.0 286.0,397.0 190.0,467.0 88.0,517.0 98.0,543.0 161.0,597.0 208.0,617.0 274.0,625.0 219.0,799.0 172.0,793.0 137.0,803.0 124.0,822.0 125.0,850.0 211.0,846.0 235.0,832.0 311.0,609.0 429.0,761.0 391.0,790.0 383.0,826.0 493.0,813.0 344.0,605.0 412.0,551.0 447.0,495.0 467.0,434.0 467.0,367.0 303.0,422.0 395.0,331.0 431.0,252.0 413.0,197.0 385.0,169.0Z"/></svg></div>
+      <p><span data-i18n="openDaily">Open</span> 10PM — 05AM &nbsp;•&nbsp; <span class="cur" data-i18n="prices">All prices in TND</span></p>
+    </footer>
+  </section>
 </main>
 
 <script>
 (function(){
-  var DATA = [{"id": "cocktails", "name": "Cocktails", "kind": "note", "price": 25, "note": "Our mixologist’s selection — ask your bartender for tonight’s list."}, {"id": "mocktails", "name": "Mocktails", "kind": "note", "price": 20, "note": "Alcohol-free — same craft, zero proof."}, {"id": "whisky", "name": "Whisky", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Johnnie Walker Red Label", [25, 300, 150]], ["Johnnie Walker Black Label", [25, 450, 225]], ["Jack Daniel’s", [25, 300, 150]]]}, {"id": "vodka", "name": "Vodka", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Smirnoff", [20, 300, 150]], ["Absolut", [20, 300, 150]]]}, {"id": "gin", "name": "Gin", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Gordon’s", [20, 300, 150]]]}, {"id": "rouge", "name": "Vin Rouge", "sub": "Red wine", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "rose", "name": "Vin Rosé", "sub": "Rosé wine", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "blanc", "name": "Vin Blanc", "sub": "White wine", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "beer", "name": "Beer", "kind": "list", "items": [["Celtia", 10], ["Beck’s", 10]]}, {"id": "soft", "name": "Soft Drinks", "kind": "list", "items": [["Eau 1L", 10], ["Coca", 10], ["Boga", 10], ["Fanta", 10], ["Energy Drink", 20]]}];
+  var DATA = [{"id": "cocktails", "name": "Cocktails", "kind": "note", "price": 25, "note": "Sélection du barman."}, {"id": "mocktails", "name": "Mocktails", "kind": "note", "price": 20, "note": "Sans alcool."}, {"id": "whisky", "name": "Whisky", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Johnnie Walker Red Label", [25, 300, 150]], ["Johnnie Walker Black Label", [25, 450, 225]], ["Jack Daniel’s", [25, 300, 150]]]}, {"id": "vodka", "name": "Vodka", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Smirnoff", [20, 300, 150]], ["Absolut", [20, 300, 150]]]}, {"id": "gin", "name": "Gin", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Gordon’s", [20, 300, 150]]]}, {"id": "rouge", "name": "Vin Rouge", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "rose", "name": "Vin Rosé", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "blanc", "name": "Vin Blanc", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "beer", "name": "Beer", "kind": "list", "items": [["Celtia", 10], ["Beck’s", 10]]}, {"id": "soft", "name": "Soft Drinks", "kind": "list", "items": [["Eau 1L", 10], ["Coca", 10], ["Boga", 10], ["Fanta", 10], ["Energy Drink", 20]]}];
+
+  /* ---------- translations ---------- */
+  var CAT={
+    aperitif:{fr:"Apéritif",en:"Aperitif",ar:"أبيريتيف"},
+    digestif:{fr:"Digestif",en:"Digestif",ar:"ديجستيف"},
+    whisky:{fr:"Whisky",en:"Whisky",ar:"ويسكي"},
+    vodka:{fr:"Vodka",en:"Vodka",ar:"فودكا"},
+    gin:{fr:"Gin",en:"Gin",ar:"جين"},
+    rouge:{fr:"Vin Rouge",en:"Red Wine",ar:"نبيذ أحمر"},
+    rose:{fr:"Vin Rosé",en:"Rosé Wine",ar:"نبيذ وردي"},
+    blanc:{fr:"Vin Blanc",en:"White Wine",ar:"نبيذ أبيض"},
+    champagne:{fr:"Champagne",en:"Champagne",ar:"شامبانيا"},
+    soft:{fr:"Soft Drinks",en:"Soft Drinks",ar:"مشروبات غازية"},
+    beer:{fr:"Bière",en:"Beer",ar:"بيرة"},
+    cocktails:{fr:"Cocktails",en:"Cocktails",ar:"كوكتيلات"},
+    mocktails:{fr:"Mocktails",en:"Mocktails",ar:"موكتيلات"}
+  };
+  var NOTE={
+    cocktails:{fr:"Sélection du barman — demandez la carte du soir.",en:"Our bartender’s selection — ask for tonight’s list.",ar:"اختيار الساقي — اسأل عن قائمة الليلة."},
+    mocktails:{fr:"Sans alcool — même savoir-faire.",en:"Alcohol-free — same craft, zero proof.",ar:"بدون كحول — نفس الحرفية."}
+  };
+  var VERRE={fr:"Verre",en:"Glass",ar:"كأس"};
+  var T={
+    fr:{tagline:"STEPS CLUB · SOUSSE",menu:"Notre Menu",menuSub:"Découvrez nos boissons",review:"Laissez un avis",reviewSub:"Super satisfait ?",back:"Retour",pill:"CARTE",hours:"Ouvert",openDaily:"Ouvert",prices:"Prix en dinars (TND)"},
+    en:{tagline:"STEPS CLUB · SOUSSE",menu:"Our Menu",menuSub:"Discover our drinks",review:"Leave a review",reviewSub:"Loved it?",back:"Back",pill:"MENU",hours:"Open Hours",openDaily:"Open",prices:"All prices in TND"},
+    ar:{tagline:"ستيبس كلوب · سوسة",menu:"قائمتنا",menuSub:"اكتشف مشروباتنا",review:"قيّمنا",reviewSub:"أعجبك المكان؟",back:"رجوع",pill:"القائمة",hours:"ساعات العمل",openDaily:"مفتوح",prices:"كل الأسعار بالدينار"}
+  };
+  var lang="fr";
 
   var nav=document.getElementById("catnav"), main=document.getElementById("sections");
 
   DATA.forEach(function(d){
-    var a=document.createElement("a"); a.href="#"+d.id; a.textContent=d.name; a.dataset.id=d.id; nav.appendChild(a);
+    var nm0=(CAT[d.id]&&CAT[d.id].fr)||d.name;
+    var a=document.createElement("a"); a.href="#"+d.id; a.textContent=nm0; a.dataset.id=d.id; nav.appendChild(a);
 
     var sec=document.createElement("section"); sec.className="sec"; sec.id=d.id;
-    var html='<div class="sec-head"><h2>'+d.name+'</h2>'+(d.sub?'<span class="sec-note">'+d.sub+'</span>':'')+'</div>';
+    var html='<div class="sec-head"><h2 class="ch-'+d.id+'">'+nm0+'</h2></div>';
     if(d.kind==="note"){
-      html+='<div class="note"><div class="note-price">'+d.price+'<small>DT</small></div><p class="note-text">'+d.note+'</p></div>';
+      var nt=(NOTE[d.id]&&NOTE[d.id].fr)||d.note;
+      html+='<div class="note"><div class="note-price">'+d.price+'<small>DT</small></div><p class="note-text cnote-'+d.id+'">'+nt+'</p></div>';
     }else if(d.kind==="grid"){
       var n=d.cols.length, cw=(n>=4?"46px":"60px"), tmpl="1fr repeat("+n+","+cw+")";
       html+='<div class="grid-head" style="grid-template-columns:'+tmpl+'"><span class="lbl"></span>'+
-        d.cols.map(function(c){return '<span>'+c+'</span>';}).join("")+'</div><ul class="gitems">';
+        d.cols.map(function(c){return '<span'+(c==="Verre"?' class="cverre"':'')+'>'+(c==="Verre"?VERRE.fr:c)+'</span>';}).join("")+'</div><ul class="gitems">';
       d.items.forEach(function(it){
         html+='<li style="grid-template-columns:'+tmpl+'"><span class="nm">'+it[0]+'</span>'+
           it[1].map(function(v){return '<span class="cell'+(v==="–"?" na":"")+'">'+v+'</span>';}).join("")+'</li>';
@@ -227,6 +356,26 @@
       html+='</ul>';
     }
     sec.innerHTML=html; main.appendChild(sec);
+  });
+
+  /* ---------- language switching ---------- */
+  function applyLang(l){
+    lang=l;
+    document.documentElement.setAttribute("dir", l==="ar"?"rtl":"ltr");
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k=el.getAttribute("data-i18n"); if(T[l][k]!=null) el.textContent=T[l][k];
+    });
+    DATA.forEach(function(d){
+      var name=(CAT[d.id]&&CAT[d.id][l])||d.name;
+      var h=document.querySelector(".ch-"+d.id); if(h) h.textContent=name;
+      var a=nav.querySelector('a[data-id="'+d.id+'"]'); if(a) a.textContent=name;
+      if(d.kind==="note"){ var nt=document.querySelector(".cnote-"+d.id); if(nt&&NOTE[d.id]) nt.textContent=NOTE[d.id][l]; }
+    });
+    document.querySelectorAll(".cverre").forEach(function(s){s.textContent=VERRE[l];});
+    document.querySelectorAll("[data-lang]").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-lang")===l); });
+  }
+  document.querySelectorAll("[data-lang]").forEach(function(b){
+    b.addEventListener("click",function(){ applyLang(b.getAttribute("data-lang")); });
   });
 
   var reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
@@ -251,13 +400,24 @@
 
   var loader=document.getElementById("loader"), app=document.getElementById("app"),
       enterBtn=document.getElementById("enterBtn");
+  var hub=document.getElementById("hub"), menuview=document.getElementById("menuview"), revealed=false;
+  function showHub(){ menuview.classList.remove("active"); hub.classList.add("active"); window.scrollTo(0,0); }
+  function showMenu(){ hub.classList.remove("active"); menuview.classList.add("active");
+    if(!revealed){ reveal(); revealed=true; } window.scrollTo(0,0); }
+  var toMenu=document.getElementById("toMenu"), backHub=document.getElementById("backHub");
+  toMenu.addEventListener("click",showMenu);
+  toMenu.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); showMenu(); } });
+  backHub.addEventListener("click",showHub);
+
   function enter(){
     if(loader.classList.contains("done"))return;
-    loader.classList.add("done"); app.classList.add("on"); reveal(); window.scrollTo(0,0);
+    loader.classList.add("done"); app.classList.add("on"); showHub();
   }
   if(reduce){ document.querySelector(".loader-tag").textContent="Tap to enter"; enterBtn.classList.add("show"); }
   else{ setTimeout(function(){enterBtn.classList.add("show");},3200);
         setTimeout(function(){if(!loader.classList.contains("done"))enter();},9000); }
   enterBtn.addEventListener("click",enter);
+
+  applyLang("fr");
 })();
 </script>
