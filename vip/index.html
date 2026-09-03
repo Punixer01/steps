@@ -1,4 +1,4 @@
-<title>STEPS Premium Menu</title>
+<title>STEPS Menu</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,8 +9,8 @@
     --navy:#1D2954;
     --navy-deep:#151D3B;
     --navy-soft:#26315C;
-    --accent:#15A46B;
-    --accent-rgb:21,164,107;
+    --accent:#F0543D;
+    --accent-rgb:240,84,61;
     --yellow:#FBDC32;
     --white:#FFFFFF;
     --muted:#8791B6;
@@ -213,6 +213,26 @@
     .moon,.dune,.glass .bowl,.logo.lg,.sec{opacity:1!important;transform:none!important}
   }
 </style>
+<script>
+(function(){
+  function pick(){
+    try{
+      var p=new URLSearchParams(location.search).get('m');
+      if(p==='green'||p==='vip')return 'green';
+      if(p==='orange'||p==='red')return 'orange';
+    }catch(e){}
+    var tn=new Date(Date.now()+3600000);            /* Tunisia = UTC+1, no DST */
+    var d=tn.getUTCDay(), h=tn.getUTCHours()+tn.getUTCMinutes()/60;
+    /* Orange: Sun 20:00 -> Fri 06:00 ; Green: Fri 06:00 -> Sun 20:00 */
+    var orange = (d===0) ? (h>=20) : (d>=1&&d<=4) ? true : (d===5) ? (h<6) : false;
+    return orange?'orange':'green';
+  }
+  var a=pick(); window.__ACTIVE=a;
+  var C = a==='green' ? ['#15A46B','21,164,107'] : ['#F0543D','240,84,61'];
+  var s=document.documentElement.style;
+  s.setProperty('--accent',C[0]); s.setProperty('--accent-rgb',C[1]);
+})();
+</script>
 
 <div class="grid-bg" aria-hidden="true"></div>
 
@@ -298,7 +318,9 @@
 
 <script>
 (function(){
-  var DATA = [{"id": "cocktails", "name": "Cocktails", "kind": "note", "price": 25, "note": "Sélection du barman."}, {"id": "mocktails", "name": "Mocktails", "kind": "note", "price": 20, "note": "Sans alcool."}, {"id": "whisky", "name": "Whisky", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Johnnie Walker Red Label", [25, 300, 150]], ["Johnnie Walker Black Label", [25, 450, 225]], ["Jack Daniel’s", [25, 300, 150]]]}, {"id": "vodka", "name": "Vodka", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Smirnoff", [20, 300, 150]], ["Absolut", [20, 300, 150]]]}, {"id": "gin", "name": "Gin", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Gordon’s", [20, 300, 150]]]}, {"id": "rouge", "name": "Vin Rouge", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "rose", "name": "Vin Rosé", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "blanc", "name": "Vin Blanc", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "beer", "name": "Beer", "kind": "list", "items": [["Celtia", 10], ["Beck’s", 10]]}, {"id": "soft", "name": "Soft Drinks", "kind": "list", "items": [["Eau 1L", 10], ["Coca", 10], ["Boga", 10], ["Fanta", 10], ["Energy Drink", 20]]}];
+  var MENUS={orange:{data:[{"id": "aperitif", "name": "Apéritif", "kind": "list", "items": [["Campari", 12], ["Pastis 51", 12], ["Ricard", 12], ["Martini Blanc", 15], ["Smirnoff Ice", 20]]}, {"id": "digestif", "name": "Digestif", "kind": "list", "items": [["Thibarine", 10], ["Get 27", 12], ["Limoncello", 12], ["Amaretto", 12], ["Jägermeister", 20], ["Bailey’s", 20]]}, {"id": "whisky", "name": "Whisky", "kind": "grid", "cols": ["Verre", "100CL", "50CL", "20CL"], "items": [["Johnnie Walker Red Label", [16, 280, "–", 60]], ["Johnnie Walker Black Label", [22, 500, 250, "–"]], ["Jack Daniel’s", [20, 450, 300, "–"]], ["Chivas", [25, 500, 300, "–"]]]}, {"id": "vodka", "name": "Vodka", "kind": "grid", "cols": ["Verre", "100CL", "50CL", "20CL"], "items": [["Vodka Smirnoff", [14, 240, 130, 60]], ["Vodka Premium", ["–", 550, "–", "–"]]]}, {"id": "gin", "name": "Gin", "kind": "grid", "cols": ["Verre", "100CL", "50CL", "20CL"], "items": [["Gin Gordon’s", [14, 240, 130, "–"]]]}, {"id": "rouge", "name": "Vin Rouge", "kind": "list", "items": [["Magnifique", 60], ["Soltan", 60], ["Selian", 60]]}, {"id": "rose", "name": "Vin Rosé", "kind": "list", "items": [["Magnifique", 60], ["Soltan", 60], ["Selian", 60]]}, {"id": "blanc", "name": "Vin Blanc", "kind": "list", "items": [["Magnifique", 60], ["Soltan", 60], ["Selian", 60]]}, {"id": "champagne", "name": "Champagne", "kind": "list", "items": [["Trocadero Peach Fizz", 100], ["Trocadero Nature Sunset", 100], ["Trocadero Bubble Blu", 110], ["Cybèle Brut Blanc", 180], ["Champagne Français", 600]]}, {"id": "soft", "name": "Soft Drinks", "kind": "list", "items": [["Eau 0.5L", 4], ["Eau 1L", 7], ["Garcia", 7], ["Soda", 7], ["Redbull", 15]]}, {"id": "beer", "name": "Beer", "kind": "list", "items": [["Celtia", 7], ["Beck’s", 7.5]]}]},green:{data:[{"id": "cocktails", "name": "Cocktails", "kind": "note", "price": 25, "note": "Sélection du barman."}, {"id": "mocktails", "name": "Mocktails", "kind": "note", "price": 20, "note": "Sans alcool."}, {"id": "whisky", "name": "Whisky", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Johnnie Walker Red Label", [25, 300, 150]], ["Johnnie Walker Black Label", [25, 450, 225]], ["Jack Daniel’s", [25, 300, 150]]]}, {"id": "vodka", "name": "Vodka", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Smirnoff", [20, 300, 150]], ["Absolut", [20, 300, 150]]]}, {"id": "gin", "name": "Gin", "kind": "grid", "cols": ["Verre", "100CL", "50CL"], "items": [["Gordon’s", [20, 300, 150]]]}, {"id": "rouge", "name": "Vin Rouge", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "rose", "name": "Vin Rosé", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "blanc", "name": "Vin Blanc", "kind": "list", "items": [["Magnifique", 70], ["Soltan", 70], ["Selian", 70]]}, {"id": "beer", "name": "Beer", "kind": "list", "items": [["Celtia", 10], ["Beck’s", 10]]}, {"id": "soft", "name": "Soft Drinks", "kind": "list", "items": [["Eau 1L", 10], ["Coca", 10], ["Boga", 10], ["Fanta", 10], ["Energy Drink", 20]]}]}};
+  var ACTIVE=(window.__ACTIVE==="green")?"green":"orange";
+  var DATA=MENUS[ACTIVE].data;
 
   /* ---------- translations ---------- */
   var CAT={
